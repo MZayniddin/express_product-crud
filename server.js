@@ -10,10 +10,12 @@ const PORT = process.env.PORT || 4000;
 
 // ROUTES
 const productRouter = require("./routes/product-router");
+const authRouter = require("./routes/auth-router");
 
 app.use(cors());
 app.use(json());
 app.use(productRouter);
+app.use(authRouter);
 
 // LISTENING PORT
 app.listen(PORT, () => {
