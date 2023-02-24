@@ -1,4 +1,5 @@
 const { read_file, write_file } = require("../fs/fs-api");
+const jwt = require("jsonwebtoken");
 
 const Product = {
   GET: (req, res) => {
@@ -17,21 +18,27 @@ const Product = {
     res.status(200).send(findProduct);
   },
 
-  CREATE: (req, res) => {
+  CREATE: async (req, res) => {
     try {
+      const userInfo = await jwt.verify(
+        req.headers.bearer,
+        process.env.SECRET_KEY
+      );
+
       const newProduct = req.body;
       const products = read_file("products.json");
       products.push({
         id: products[products.length - 1]
           ? products[products.length - 1].id + 1
           : 1,
+        user_id: userInfo.id,
         ...newProduct,
       });
 
       write_file("products.json", products);
       res.status(201).send({ msg: "Course created" });
     } catch (error) {
-      res.end(error.message);
+      res.send({ error: error.message });
     }
   },
 

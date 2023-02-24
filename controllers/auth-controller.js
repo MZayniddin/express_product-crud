@@ -42,7 +42,7 @@ const Auth = {
     const token = jwt.sign(
       { id: checkUser.id, email: checkUser.email },
       process.env.SECRET_KEY,
-      { expiresIn: "10s" }
+      { expiresIn: process.env.JWT_TIME }
     );
 
     res.status(200).send({ token: token });

@@ -4,5 +4,11 @@
     "username": "mrx",
     "password": "$2a$12$OBmEmI11Q0ObQ47dK1ClWuq6AMHUsOQUXS/TaTTfjR00y9x8BCNny",
     "email": "mrx77@gmail.com"
+  },
+  {
+    "id": 2,
+    "username": "toshmatboy",
+    "password": "$2a$12$HebFKPZQtpJPnVVfVy64dumFmArk49dnt.D02dQYqSot9sKJI5YKa",
+    "email": "toshmat@gmail.com"
   }
 ]

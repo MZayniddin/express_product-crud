@@ -1,17 +1,26 @@
 [
   {
     "id": 1,
+    "user_id": 1,
     "name": "iPhone 12",
-    "price": 1200
+    "price": 1000
   },
   {
     "id": 2,
-    "name": "iWatch",
-    "price": 800
+    "user_id": 1,
+    "name": "iPhone 13",
+    "price": 1200
   },
   {
     "id": 3,
-    "name": "iPhone 14",
-    "price": 1800
+    "user_id": 1,
+    "name": "Samsung 21s",
+    "price": 1200
+  },
+  {
+    "id": 4,
+    "user_id": 2,
+    "name": "Samsung 22s",
+    "price": 1300
   }
 ]
