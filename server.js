@@ -15,7 +15,7 @@ app.use(cors());
 app.use(json());
 app.use(productRouter);
 
-
+// LISTENING PORT
 app.listen(PORT, () => {
   console.log("server is running on the " + PORT);
 });
