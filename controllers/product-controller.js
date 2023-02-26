@@ -3,7 +3,12 @@ const jwt = require("jsonwebtoken");
 
 const Product = {
   GET: (req, res) => {
-    res.status(200).send(read_file("products.json"));
+    console.log(req.user);
+    const { id } = req.user;
+    const productsArr = read_file("products.json").filter(
+      ({ user_id }) => user_id === id
+    );
+    res.status(200).send(productsArr);
   },
 
   GET_ONE: (req, res) => {
@@ -20,10 +25,7 @@ const Product = {
 
   CREATE: async (req, res) => {
     try {
-      const userInfo = await jwt.verify(
-        req.headers.bearer,
-        process.env.SECRET_KEY
-      );
+      const { id } = req.user;
 
       const newProduct = req.body;
       const products = read_file("products.json");
@@ -31,7 +33,7 @@ const Product = {
         id: products[products.length - 1]
           ? products[products.length - 1].id + 1
           : 1,
-        user_id: userInfo.id,
+        user_id: id,
         ...newProduct,
       });
 

@@ -22,5 +22,17 @@
     "user_id": 2,
     "name": "Samsung 22s",
     "price": 1300
+  },
+  {
+    "id": 5,
+    "user_id": 2,
+    "name": "Samsung 21s",
+    "price": 1200
+  },
+  {
+    "id": 6,
+    "user_id": 2,
+    "name": "Samsung 21s",
+    "price": 1200
   }
 ]
