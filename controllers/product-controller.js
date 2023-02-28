@@ -1,9 +1,7 @@
 const { read_file, write_file } = require("../fs/fs-api");
-const jwt = require("jsonwebtoken");
 
 const Product = {
   GET: (req, res) => {
-    console.log(req.user);
     const { id } = req.user;
     const productsArr = read_file("products.json").filter(
       ({ user_id }) => user_id === id
@@ -50,7 +48,6 @@ const Product = {
     let changed = false;
     products.forEach((product) => {
       if (product.id == req.params.id) {
-        console.log("kirdi");
         product.name = name ? name : product.name;
         product.price = price ? price : product.price;
         changed = true;
